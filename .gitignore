@@ -1,0 +1,19 @@
+# Dependencies
+themes/
+
+# Build output
+public/
+resources/
+
+# Environment variables (NEVER commit these)
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~

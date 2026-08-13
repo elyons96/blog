@@ -1,0 +1,43 @@
+# Hugo Site Configuration for Erik's Blog
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "Erik's Blog"
+theme = "papermod"
+paginate = 10
+summaryLength = 70
+enableRobotsTXT = true
+guildML = false
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[params]
+  env = "dev"  # change to 'prod' for production builds
+  description = "A blog by Erik"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  comments = false
+
+[params.homeInfoParams]
+  Title = "Welcome"
+  Content = ":wave: Hi, I'm Erik. Welcome to my blog!"
+
+[social]
+  GitHub = "erik/blog"  # update when repo is created
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  pageRef = "posts"
+  weight = 10
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  pageRef = "about"
+  weight = 20
