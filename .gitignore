@@ -4,6 +4,7 @@ themes/
 # Build output
 public/
 resources/
+.hugo_build.lock
 
 # Environment variables (NEVER commit these)
 .env
