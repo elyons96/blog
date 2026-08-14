@@ -1,0 +1,134 @@
+/* ============================================================
+   Custom CSS for hugo-theme-console - Mobile Optimizations
+   Place in: /home/elyons/Blog/assets/css/custom.css
+   ============================================================ */
+
+/* ===== MOBILE MEDIA QUERIES (max-width: 850px) ===== */
+@media only screen and (max-width: 850px) {
+
+    /* Ensure the terminal theme styling applies properly */
+    :root {
+        --global-font-size: 14px !important;
+        --global-font-color: #e0e0e0 !important;      /* Light on dark terminal theme */
+        --global-line-height: 1.5em !important;
+    }
+
+    /* Link styling - ensure links are visible */
+    a {
+        color: #9fd4ff !important;         /* Bright blue links */
+        text-decoration: none !important;
+        border-bottom: 1px solid #9fd4ff !important;
+        transition: color 0.2s ease !important;
+    }
+
+    a:hover, a:focus {
+        color: #a4ffff !important;
+        border-color: #a4ffff !important;
+    }
+
+    /* Ensure text is visible against terminal background */
+    .terminal {
+        color: #e0e0e0 !important;
+        background-color: #1e1e1e !important;
+    }
+
+    /* Heading colors */
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+    }
+
+    /* Paragraph text */
+    p {
+        color: #d0d0d0 !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Ensure images scale and have reasonable contrast */
+    img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #333 !important;
+    }
+
+    /* Blockquotes */
+    blockquote {
+        border-left: 4px solid #9fd4ff !important;
+        color: #d0d0d0 !important;
+        padding-left: 1em !important;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse !important;
+    }
+    th, td {
+        border: 1px solid #333 !important;
+        color: #d0d0d0 !important;
+        padding: 8px !important;
+    }
+    th {
+        background-color: #252526 !important;
+    }
+
+    /* Navigation */
+    .terminal-nav {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .site-name {
+        width: auto !important;
+        text-align: center !important;
+        margin-bottom: 1em !important;
+    }
+
+    .terminal-menu ul {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .terminal-menu li {
+        margin: 4px 0 !important;
+    }
+}
+
+/* ===== ADDITIONAL MOBILE ENHANCEMENTS ===== */
+
+/* Ensure font scaling doesn't break layout on iOS */
+html {-webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/* Make sure form elements and iframes scale properly */
+img, video, canvas, iframe {
+    max-width: 100%;
+}
+
+/* Improve tap target sizes on touch devices */
+a, button, .terminal-nav a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reduce motion for reduced-preference users */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important;
+    }
+}
+
+/* Print styles - ensure readability when printed */
+@media print {
+    *, *::before, *::after {
+        background-color: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a, a:visited {
+        text-decoration: underline;
+    }
+}

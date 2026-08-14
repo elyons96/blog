@@ -1,8 +1,8 @@
 # Hugo Site Configuration for Erik's Blog
-baseURL = "http://localhost:1313/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Erik's Blog"
-theme = "papermod"
+theme = "hugo-theme-console"
 paginate = 10
 summaryLength = 70
 enableRobotsTXT = true
@@ -10,6 +10,9 @@ guildML = false
 buildDrafts = false
 buildFuture = false
 buildExpired = false
+
+# Use relative URLs for proper linking when accessed via Tailscale
+relativeURLs = true
 
 [params]
   env = "dev"  # change to 'prod' for production builds

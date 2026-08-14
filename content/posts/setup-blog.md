@@ -36,17 +36,18 @@ chmod +x ~/bin/forgejo
 ```bash
 cd ~/Blog && hugo new site . --force
 git init
-git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/papermod
+git submodule add https://github.com/yihui/hugo-theme-console.git themes/hugo-theme-console
 ```
 
-The PaperMod theme gives us a clean, modern blog layout with minimal configuration needed.
+The `hugo-theme-console` theme gives us a clean, console/terminal-inspired layout with responsive design that works well on both desktop and mobile devices.
 
 ### Step 3: Configuring Everything
 
 Key files created:
-- `hugo.toml` - Site configuration (title, theme, menu)
-- `.gitignore` - Excludes `.env`, `public/`, and build artifacts
+- `hugo.toml` - Site configuration (theme, relative URLs for Tailscale compatibility)
+- `assets/css/custom.css` - Custom CSS for mobile optimizations and theme styling
 - `Makefile` - Build automation with commands like `make dev`, `make serve`, `make push`
+- `.gitignore` - Excludes `.env`, `public/`, and build artifacts
 
 ### Step 4: Connecting to Forgejo
 
@@ -84,9 +85,11 @@ Now that everything is set up, the workflow is simple:
 
 ## Lessons Learned
 
-- **Tailscale syntax matters**: The correct format is `tailscale serve http://:80=http://localhost:1313`, not the URL format I initially suggested
+- **Tailscale syntax matters**: The correct format is `tailscale serve 1313` (just the port number), not URL-based formats
 - **Single binaries are great**: Both Hugo and Forgejo run as standalone executables - no Docker, no complex dependencies
 - **Markdown-first approach**: Content stays portable regardless of hosting platform later
+- **Custom CSS helps mobile styling**: Adding `assets/css/custom.css` fixes theme coloring on mobile devices
+- **Relative URLs work best**: Setting `baseURL = "/"` and `relativeURLs = true` in `hugo.toml` ensures links work both locally and via Tailscale
 
 ## Next Steps
 
@@ -100,4 +103,4 @@ The beauty of this setup is that content is just markdown files - we can migrate
 
 ---
 
-*This post was written collaboratively with an AI assistant using Hugo and the PaperMod theme.*
+*This post was written collaboratively with an AI assistant using Hugo and the hugo-theme-console theme.*

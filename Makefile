@@ -14,7 +14,7 @@ dev:
 # Expose the site via Tailscale HTTPS
 serve: build
 	@echo "Exposing blog via Tailscale..."
-	tailscale serve http://:80=http://localhost:1313 &
+	tailscale serve 1313 &
 	@echo "✓ Blog is live at https://fwai01.<your-tailnet>.ts.net"
 
 # Commit and push to Forgejo
