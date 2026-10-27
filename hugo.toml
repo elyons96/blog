@@ -14,7 +14,7 @@ buildExpired = false
 relativeURLs = false
 
 [params]
-  env = "prod"  # changed from dev — site is live on Cloudflare Pages
+  env = "prod"
   description = "A blog by Erik"
   defaultTheme = "auto"
   ShowReadingTime = true

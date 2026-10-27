@@ -1,0 +1,4 @@
+baseURL = "https://fwai01.batfish-python.ts.net/"
+
+[params]
+  env = "dev"
