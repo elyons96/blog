@@ -1,9 +1,9 @@
 # Hugo Site Configuration for Erik's Blog
-baseURL = "/"
+baseURL = "https://fwai01.batfish-python.ts.net/"
 languageCode = "en-us"
 title = "Erik's Blog"
 theme = "hugo-theme-console"
-paginate = 10
+pagination = { pagerSize = 10 }
 summaryLength = 70
 enableRobotsTXT = true
 guildML = false
@@ -11,8 +11,12 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# Use relative URLs for proper linking when accessed via Tailscale
-relativeURLs = true
+# Use absolute URLs so links work correctly through Tailscale proxy
+relativeURLs = false
+
+# Force Hugo dev server to use this baseURL (overrides --bind behavior)
+[server]
+  baseURL = "https://fwai01.batfish-python.ts.net/"
 
 [params]
   env = "dev"  # change to 'prod' for production builds
