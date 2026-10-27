@@ -54,8 +54,8 @@ I name the backup folder after my machine's hostname so each device has its own 
 
 The key flags for automated backups:
 
-- **`-f skip`** — Skip files that already exist on Proton Drive (don't overwrite)
-- **`-d merge`** — Merge folder contents instead of replacing entire folders
+- **`-f skip`**, Skip files that already exist on Proton Drive (don't overwrite)
+- **`-d merge`**, Merge folder contents instead of replacing entire folders
 
 ```bash
 # Upload your Documents folder
@@ -99,7 +99,7 @@ proton-drive filesystem list -j /my-files/BACKUP-PLACEHOLDER
 # Check folder size
 proton-drive filesystem size /my-files/BACKUP-PLACEHOLDER/Documents
 
-# Full account export (takeout) — read-only, never modifies your drive
+# Full account export (takeout), read-only, never modifies your drive
 proton-drive takeout run -i my-files,photos,revisions ~/backup-takeout/
 
 # Share a folder with someone
@@ -111,7 +111,7 @@ proton-drive sharing invite -u user@example.com -r viewer /my-files/BACKUP-PLACE
 - **Predictable:** Cron runs at known times, not random sync intervals
 - **Auditable:** Log files show exactly what was uploaded each run
 - **No background processes:** The CLI only runs when it needs to
-- **Delta uploads:** Only changed files transfer — fast after the initial backup
+- **Delta uploads:** Only changed files transfer, fast after the initial backup
 - **Privacy-first:** Proton Drive is end-to-end encrypted, and I control the sync behavior
 
 The desktop app is fine if you want set-and-forget. But for people who like knowing exactly what's happening with their data, the CLI + cron combination gives you that visibility without sacrificing convenience.
