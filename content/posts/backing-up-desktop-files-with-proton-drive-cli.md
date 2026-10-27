@@ -45,10 +45,10 @@ This opens a browser for you to authorize with your Proton account. Keep the ter
 
 ```bash
 # Create a dedicated backup folder
-proton-drive filesystem create-folder /my-files FWAI01
+proton-drive filesystem create-folder /my-files BACKUP-PLACEHOLDER
 ```
 
-I use `FWAI01` as my backup root — it's the hostname of this machine, so any future backups from other machines will have their own distinct folders.
+I name the backup folder after my machine's hostname so each device has its own distinct backup directory.
 
 ## Uploading Files
 
@@ -59,10 +59,10 @@ The key flags for automated backups:
 
 ```bash
 # Upload your Documents folder
-proton-drive filesystem upload -f skip -d merge /home/elyons/Documents /my-files/FWAI01
+proton-drive filesystem upload -f skip -d merge /home/elyons/Documents /my-files/BACKUP-PLACEHOLDER
 
 # Upload a blog or project directory
-proton-drive filesystem upload -f skip -d merge /home/elyons/Blog /my-files/FWAI01
+proton-drive filesystem upload -f skip -d merge /home/elyons/Blog /my-files/BACKUP-PLACEHOLDER
 ```
 
 The CLI reports a transfer summary: `Uploaded: X items (Y MiB)`. If nothing changed, it uploads zero files. This makes repeated runs cheap and fast.
@@ -82,10 +82,10 @@ Set up daily cron jobs for hands-off backups:
 
 ```bash
 # Documents backup at 1 AM
-0 1 * * * proton-drive filesystem upload -f skip -d merge /home/elyons/Documents /my-files/FWAI01 >> ~/.local/log/proton-backup.log 2>&1
+0 1 * * * proton-drive filesystem upload -f skip -d merge /home/elyons/Documents /my-files/BACKUP-PLACEHOLDER >> ~/.local/log/proton-backup.log 2>&1
 
 # Blog/project backup at 2 AM
-0 2 * * * proton-drive filesystem upload -f skip -d merge /home/elyons/Blog /my-files/FWAI01 >> ~/.local/log/proton-backup.log 2>&1
+0 2 * * * proton-drive filesystem upload -f skip -d merge /home/elyons/Blog /my-files/BACKUP-PLACEHOLDER >> ~/.local/log/proton-backup.log 2>&1
 ```
 
 **Important:** Always include `-f` and `-d` flags in cron jobs. Without them, the CLI prompts for conflict resolution interactively and will hang waiting for input.
@@ -94,16 +94,16 @@ Set up daily cron jobs for hands-off backups:
 
 ```bash
 # List files with JSON output (great for scripting)
-proton-drive filesystem list -j /my-files/FWAI01
+proton-drive filesystem list -j /my-files/BACKUP-PLACEHOLDER
 
 # Check folder size
-proton-drive filesystem size /my-files/FWAI01/Documents
+proton-drive filesystem size /my-files/BACKUP-PLACEHOLDER/Documents
 
 # Full account export (takeout) — read-only, never modifies your drive
 proton-drive takeout run -i my-files,photos,revisions ~/backup-takeout/
 
 # Share a folder with someone
-proton-drive sharing invite -u user@example.com -r viewer /my-files/FWAI01/Documents
+proton-drive sharing invite -u user@example.com -r viewer /my-files/BACKUP-PLACEHOLDER/Documents
 ```
 
 ## Why This Works for Me
