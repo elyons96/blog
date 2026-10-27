@@ -1,5 +1,5 @@
 # Hugo Site Configuration for Erik's Blog
-baseURL = "https://fwai01.batfish-python.ts.net/"
+baseURL = "https://blog.mtnlyons.dev/"
 languageCode = "en-us"
 title = "Erik's Blog"
 theme = "hugo-theme-console"
@@ -11,15 +11,10 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# Use absolute URLs so links work correctly through Tailscale proxy
 relativeURLs = false
 
-# Force Hugo dev server to use this baseURL (overrides --bind behavior)
-[server]
-  baseURL = "https://fwai01.batfish-python.ts.net/"
-
 [params]
-  env = "dev"  # change to 'prod' for production builds
+  env = "prod"  # changed from dev — site is live on Cloudflare Pages
   description = "A blog by Erik"
   defaultTheme = "auto"
   ShowReadingTime = true
